@@ -1,0 +1,11 @@
+puts "Give me 3 numbers"
+numbers = gets
+numbersArray = [] 
+numbers.split(" ").each do |n|
+	numbersArray.push(n.to_f)
+end
+
+puts "What's your name?"
+name = gets
+puts (numbersArray[0] + numbersArray[2])/numbersArray[1] 
+puts name.downcase
