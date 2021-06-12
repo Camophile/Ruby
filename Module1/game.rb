@@ -12,7 +12,7 @@ puts "You have #{guesses} tries to guess the correct number"
 
 while guesses > 0
   
-  guess = gets.chomp
+  guess = gets.chomp.to_i
   guesses -=1
 
   if guess == target 
@@ -21,7 +21,12 @@ while guesses > 0
     break 
 
   elsif guesses >= 1
-    puts "#{guess} is incorrect\nyou have #{guesses} guesses left\nguess again."
+      if guess > target
+        puts "#{guess} is too high"
+      else
+        puts "#{guess} is too low"
+      end
+    puts "#{guesses} guesses left\nguess again."
   else 
     puts "You're out of guesses. GOODBYE!"
     puts "correct number is #{target}"
