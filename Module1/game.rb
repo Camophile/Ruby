@@ -19,7 +19,6 @@ while guesses > 0 # repeat loop until they have 0 tries
   
   if guess == target 
     if guesses <= 1 # reverses plural statement since we're counting down (could be improved)
-      puts "inside if: ${guesses}"
       s = "es"
     elsif guesses == 9
       s = ""
