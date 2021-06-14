@@ -1,25 +1,27 @@
 while true
-  print "Enter a number: "
-  entry = gets.chomp
+  # print "Enter a number: "
+  entry = "527938" # gets.chomp
   number = Integer(entry) rescue false
+
   if number
-    sortedArray = [] # final array to be printed
-
-    currentNum = 0 #current number being compared in the loop
-    lastNum = 0 # last assessed num, which is given num at the end of loop
-
     numberArray = entry.split("")
-    numberArray.each_with_index do | num, i |
-      #if i >= i # if we're after the first loop
-       # if sortedArray[i] > sortedArray[i-1]
-        #end  
-      #else # first iteration always puts number at beginning
-        #sortedArray[i] = num
-        #sortedArray.unshift(num)
-      #end # if inside loop 
-      puts "num: #{num}, i: #{i}"
+    length = numberArray.length
+    puts "numberArray: #{numberArray}"
+    length.times do | i |
+      backwardsIndex = length - i
+      puts "backwardsIndex: #{backwardsIndex}"
+      unless backwardsIndex == length
+        puts "backwardsIndex: #{backwardsIndex}, numberArray[backwardsIndex]: #{numberArray[backwardsIndex]}"
+   
+        if numberArray[backwardsIndex] > numberArray[backwardsIndex - 1]
+
+          numberArray[backwardsIndex], numberArray[backwardsIndex - 1] = numberArray[backwardsIndex - 1], numberArray[backwardsIndex]
+          puts "numberArray after sort: #{numberArray}"
+        end #if
+      end # unless
 
     end # each 
+    puts "final: #{numberArray}"
     break
   end # if
 end # while 
