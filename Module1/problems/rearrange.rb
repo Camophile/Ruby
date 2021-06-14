@@ -3,7 +3,7 @@ def sortIndex(array)
   length = array.length
   length.times do | i |
     backwardsIndex = length - i # start at the end of the array and work backwards
-    unless backwardsIndex == length # ignore when backwardsIndex is == length so we don't attempt to look outside of possible elements
+    unless backwardsIndex == length # ignore when backwardsIndex is == length so we don't attempt to look outside of possible elements, ie. when i==0
       if array[backwardsIndex] > array[backwardsIndex - 1] # check if current element is greater than leftmost element
         array[backwardsIndex], array[backwardsIndex - 1] = array[backwardsIndex - 1], array[backwardsIndex] # if so switch
         switch = true
