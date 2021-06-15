@@ -1,6 +1,7 @@
 def sortIndex(array)
   switch = false # sets switch to false at each new iteration to check for any movement
   length = array.length
+
   length.times do | i |
     backwardsIndex = length - i # start at the end of the array and work backwards
     unless backwardsIndex == length # ignore when backwardsIndex is == length so we don't attempt to look outside of possible elements, ie. when i==0
@@ -13,6 +14,7 @@ def sortIndex(array)
       end #if
     end # unless
   end # times
+
   array # return the final sorted array
 end
 
