@@ -14,6 +14,7 @@ def use_headlights(brightness="blinding")
 end
 
 def mileage(miles, fuel)
+  return 0.0 if fuel == 0
   miles/fuel
 end
 
@@ -21,6 +22,7 @@ sound_horn
 accelerate
 use_headlights
 puts "you got #{mileage(400, 12)} MPG on this trip"
+puts "new cars have #{mileage(0, 0)} MPG"
 puts "This car averages #{mileage(11432, 366)} MPG"
 
 
