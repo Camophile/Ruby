@@ -1,10 +1,14 @@
 hint = String.new
+puts "MASTERMIND"
+
+guessCount = 0
 
 until hint == "XXXX"
         hint = ""
 	# code = Array.new(4) { rand(1..6) } 
 	code = [2, 6 ,3 , 4]
 	puts "code: #{code}"
+        print "[#{guessCount + 1}] Enter your guess: "
 	guess = gets.chomp.split("").map(&:to_i)
 	# guess = [3, 6, 5, 2]
 
@@ -18,5 +22,7 @@ until hint == "XXXX"
           end
           puts "current value: #{value}, current guess: #{guess[i]}, hint: #{hint}"
         end
-
+guessCount += 1
+puts "guessCount: #{guessCount}"
+puts ""
 end
