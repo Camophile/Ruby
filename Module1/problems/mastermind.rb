@@ -7,7 +7,7 @@ puts "MASTERMIND"
 until hint.join("") == "XXXX"
 
         unless hint == [] # doesn't show hint if none of the digits match 
-          hint.join("") 
+          puts  hint.join("") 
         end
 
         trackHash = {} # initiate track hash to see previous matches in the round
@@ -19,7 +19,6 @@ until hint.join("") == "XXXX"
 
   if entry.size == 4 && entry.to_i > 0 # check if the string entered is 4 long and numerical/not negative
     guess = entry.split("").map(&:to_i)
-    puts ""
     unless guess.any? { | v | v >= 7 } # checks each element and if any >= 7 skips
 
       guess.each_with_index do | guessValue, i |
