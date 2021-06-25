@@ -7,7 +7,7 @@ puts "MASTERMIND"
 until hint.join("") == "XXXX"
 
         unless hint == [] # doesn't show hint if none of the digits match 
-          puts hint.join("") 
+          hint.join("") 
         end
 
         trackHash = {} # initiate track hash to see previous matches in the round
