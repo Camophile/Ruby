@@ -7,7 +7,7 @@ puts "MASTERMIND"
 until hint.join("") == "XXXX"
 
         unless hint == [] # doesn't show hint if none of the digits match 
-          puts hint.join("") 
+          puts  hint.join("") 
         end
 
         trackHash = {} # initiate track hash to see previous matches in the round
@@ -23,27 +23,18 @@ until hint.join("") == "XXXX"
 
       guess.each_with_index do | guessValue, i |
         code.each_with_index do | codeValue, y |
-puts "guess index: #{i}, guessValue: #{guessValue}, code index: #{y}, codeValue: #{codeValue}"
           if guessValue == codeValue
-puts "inside values maching"
             matchValue = guess[i]
-puts "#{matchValue}"
             if i == y
-puts "inside indexes matching"
-puts "trackHash: #{trackHash}, y: #{y}"
               if trackHash[y] == matchValue # we look in the track hash to see if this index was caught when indexes didn't match
-puts "inside if trackHash == y: trackHash[#{y}]: #{trackHash[y]}"
                 hint.pop if hint[-1] == "x"
-                # trackHash.delete(y)
               end # if
               hint.unshift("X") # place "X" at beginning when indexes match
               trackHash[y] = matchValue
-puts "add X to beginning of hint: #{hint}, add value to trackHash: #{trackHash}"
             else # values match but not indexes
               unless trackHash[y] == matchValue # we look in the track hash to see if this index was caught when indexes didn't match
                 hint << "x" 
                 trackHash[y] = matchValue
-puts "values match but not indexes: hint: #{hint}, trackHash: #{trackHash}"
               end
             end # if indexes match
 
