@@ -7,13 +7,13 @@ puts "MASTERMIND"
 until hint.join("") == "XXXX"
 
         unless hint == [] # doesn't show hint if none of the digits match 
-          puts  hint.join("") 
+          puts hint.join("") 
         end
 
         trackHash = {} # initiate track hash to see previous matches in the round
         hint = [] # reset the hint on each new attempt
 
-	# code = [1, 2 ,3 , 4]
+	# code = [6, 4, 4 , 6]
         print "[#{guessCount}] Enter your guess: "
         entry = gets.chomp
 
@@ -26,16 +26,16 @@ until hint.join("") == "XXXX"
           if guessValue == codeValue
             matchValue = guess[i]
             if i == y
-              if trackHash[y] == matchValue # we look in the track hash to see if this index was caught when indexes didn't match
-                hint.pop if hint[-1] == "x"
+              if trackHash[y] == matchValue # we look in the trackHash to see if this index was already caught
+                hint.pop if hint[-1] == "x" # if so we remove the previous non-index-matched hint and add the index one below
               end # if
               hint.unshift("X") # place "X" at beginning when indexes match
               trackHash[y] = matchValue
             else # values match but not indexes
               unless trackHash[y] == matchValue # we look in the track hash to see if this index was caught when indexes didn't match
-                hint << "x" 
-                trackHash[y] = matchValue
-              end
+                hint << "x" # if not already matched we add an "x"
+              trackHash[y] = matchValue
+              end # unless
             end # if indexes match
 
           end # if values match
