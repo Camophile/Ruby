@@ -7,7 +7,7 @@ puts "MASTERMIND"
 until hint.join("") == "XXXX"
 
         unless hint == [] # doesn't show hint if none of the digits match 
-          hint.join("") 
+          puts hint.join("") 
         end
 
         trackHash = {} # initiate track hash to see previous matches in the round
@@ -48,7 +48,6 @@ puts "values match but not indexes: hint: #{hint}, trackHash: #{trackHash}"
             end # if indexes match
 
           end # if values match
-puts ""
         end # code each
       end # guess each
     guessCount = hint.join("") == "XXXX" ? guessCount : guessCount + 1 # either a correct guess or an entry has a digit > 7, either way count is paused
