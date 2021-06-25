@@ -20,8 +20,12 @@ until hint == "XXXX"
       if value == guess[i]
         hint.prepend("X")
       elsif code.include? guess[i]
+        puts "before delete"
+        puts "i: #{i}, code: #{code}" 
+        code.delete_at(i)
         hint.concat("x") # need to refactor this as it provide 'x'' for each guess of a value and doesn't take into consideration how many times a value occurs in the code
-      end
+        puts "code after delete: #{code}"
+      end # if
     end # each
     guessCount = hint == "XXXX" ? guessCount : guessCount + 1 # either a correct guess or an entry has a digit > 7, either way count is paused
     else # detected a digit > 6 so guess not counted
