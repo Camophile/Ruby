@@ -1,4 +1,4 @@
-code = Array.new(4) { rand(1..6) } 
+#code = Array.new(4) { rand(1..6) } 
 hint = []
 guessCount = 1
 
@@ -13,7 +13,7 @@ until hint.join("") == "XXXX"
         trackHash = {} # initiate track hash to see previous matches in the round
         hint = [] # reset the hint on each new attempt
 
-	# code = [6, 4, 4 , 6]
+	code = [6, 4, 4 , 6]
         print "[#{guessCount}] Enter your guess: "
         entry = gets.chomp
 
@@ -26,8 +26,10 @@ until hint.join("") == "XXXX"
           if guessValue == codeValue
             matchValue = guess[i]
             if i == y
+puts "indexes match"
               if trackHash[y] == matchValue # we look in the trackHash to see if this index was already caught
                 hint.pop if hint[-1] == "x" # if so we remove the previous non-index-matched hint and add the index one below
+
               end # if
               hint.unshift("X") # place "X" at beginning when indexes match
               trackHash[y] = matchValue
