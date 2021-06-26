@@ -1,10 +1,10 @@
 def hintAggregator (guess, code)
-  trackHash = {} # initiate track hash to see previous matches in the round
+  trackHash = {} # initiate track hash to see previous matches and indexes
   hint = []
       
     guess.each_with_index do | guessValue, i |
       catch :captured_index do # we break out of loop so if a code index is captured we don't keep looking at the guesses (prevents duplicate hints when there is more than the same digit in the code)
-      code.each_with_index do | codeValue, y | # 
+      code.each_with_index do | codeValue, y |
         if guessValue == codeValue
           matchValue = guess[i]
           if i == y
@@ -13,12 +13,12 @@ def hintAggregator (guess, code)
             end # if
             hint.unshift("X") # place "X" at beginning when indexes match
             trackHash[y] = matchValue
-              throw :captured_index # jump to the next index in the guess array
+              throw :captured_index # jump to the next index in the code array
           else # values match but not indexes
             unless trackHash[y] == matchValue # we look in the track hash to see if this index was caught when indexes didn't match
               hint << "x" # if not already matched we add an "x"
               trackHash[y] = matchValue
-             throw :captured_index # jumpt to the next indext in the guess array
+             throw :captured_index # jump to the next index in the code array
             end # unless
           end # if indexes match
         end # if values match
