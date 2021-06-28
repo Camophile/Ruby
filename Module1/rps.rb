@@ -14,14 +14,15 @@ def gamePlay
   winner = ""
   playerOne = getSelection("1")
   playerTwo = getSelection("2")
-
+puts "Player one: #{playerOne}"
+puts "Player two: #{playerTwo}"
   paper = "Paper covers rock."
   rock = "Rock crushes scissors."
   scissors = "Scissors cuts paper."
 
   if playerOne == playerTwo
-    puts "Tie!"
-    gamePlay
+    winner = "Tie!"
+    #gamePlay
   else
     case playerOne
     when "rock"
@@ -50,4 +51,12 @@ def gamePlay
   winner
 end
 
-puts gamePlay
+result = gamePlay
+puts result
+while result == "Tie!"
+  result = gamePlay
+  puts result
+end
+
+
+
