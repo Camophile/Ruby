@@ -1,62 +1,53 @@
-puts "Rock Paper Scissors"
-def getSelection(player)
+# return player entry if valid or call again until returns one of rock, paper or scissors
+def getEntry(player)
   print "Player #{player} - Enter your selection: "
   entry = gets.chomp.downcase
   if entry == "rock" || entry == "paper" || entry == "scissors"
     entry
   else
     puts "No cheaters! Only Rock, Paper or Scissors are allowed"
-    getSelection(player)
+    getEntry(player)
   end
 end
 
-def gamePlay
-  winner = ""
-  playerOne = getSelection("1")
-  playerTwo = getSelection("2")
-puts "Player one: #{playerOne}"
-puts "Player two: #{playerTwo}"
+def returnWinner(entry1, entry2)
+  def callWinner(playerNumber)
+    "Player #{playerNumber} wins."
+  end
+
   paper = "Paper covers rock."
   rock = "Rock crushes scissors."
   scissors = "Scissors cuts paper."
 
-  if playerOne == playerTwo
-    winner = "Tie!"
-    #gamePlay
+  if entry1 == "rock"
+    winner = entry2 == "paper" ? [paper, callWinner("2")] : [rock, callWinner("1")]
+  elsif entry1 == "paper"
+    winner = entry2 == "scissors" ? [scissors, callWinner("2")] : [paper, callWinner("1")]
+  else # entry1 is scissors
+    winner = entry2 == "rock" ? [rock, callWinner("2")] : [scissors, callWinner("1")]
+  end   
+end
+
+# returns two-element array of winner statements, or single element when tied 
+def gamePlay 
+  winner = []
+  playerOne = "1"
+  playerTwo = "2"
+  playerOneEntry = getEntry(playerOne)
+  playerTwoEntry = getEntry(playerTwo)
+
+
+  if playerOneEntry == playerTwoEntry
+    winner.push( "Tie!")
   else
-    case playerOne
-    when "rock"
-      case playerTwo
-      when "paper"
-        winner = paper
-      when "scissors"
-        winner = rock
-      end # case
-    when "paper"
-      case playerTwo
-      when "rock"
-        winner = paper
-      when "scissors"
-        winner scissors
-      end #case
-    when "scissors"
-      case playerTwo
-      when "rock"
-        winner = rock
-      when "paper"
-        winner = scissors
-      end # case
-    end # case 
+    winner = returnWinner(playerOneEntry, playerTwoEntry)
   end # if
-  winner
 end
 
-result = gamePlay
-puts result
-while result == "Tie!"
+puts "Rock Paper Scissors"
+
+result = []
+while result.empty? || result[0] == "Tie!"
   result = gamePlay
-  puts result
+  result.each { | entry | puts entry unless entry.empty?  }
 end
-
-
-
