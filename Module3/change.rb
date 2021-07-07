@@ -1,4 +1,5 @@
 input = 0
+coinsCount = 0
 outputString = "You need to dispense"
 
 def calcChange(amount)
@@ -41,7 +42,11 @@ changeHash = calcChange(amount) do | hash, change |
 end
 
 puts "coinHash after: #{changeHash}"
-outputArray = changeHash.map { | coin, number | " #{number} #{coin}#{number == 1 ? "" : "s"}" if number > 0 }
+outputArray = changeHash.map do | coin, number | 
+  coinsCount += number
+  " #{number} #{coin}#{number == 1 ? "" : "s"}"
+end
+
 puts "outputArray: #{outputArray}"
 
 unless outputArray.empty?
@@ -58,3 +63,4 @@ else
   outputString = "You don't need to dispense change"
 end
 puts "outputString: #{outputString}"
+puts "Total coins: #{coinsCount}"
