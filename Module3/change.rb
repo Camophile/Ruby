@@ -19,7 +19,6 @@ coins = {
     end # until
   end # each
   coinsHash = yield(coinsHash, amount) # we check if amount should be rounded to 5, and if it should, we add a nickel 
-  coinsHash
 end
 
 # start input
