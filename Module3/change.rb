@@ -44,11 +44,17 @@ puts "coinHash after: #{changeHash}"
 outputArray = changeHash.map { | coin, number | " #{number} #{coin}#{number == 1 ? "" : "s"}" if number > 0 }
 puts "outputArray: #{outputArray}"
 
-outputArray.each do | coin |
-  unless coin == outputArray.last
-    outputString.concat("#{coin},")
-  else
-    outputString.concat(" and#{coin}.") if coin
+unless outputArray.empty?
+  outputArray.each do | coin |
+    if outputArray.size == 1
+      outputString.concat("#{coin}.")
+    elsif coin == outputArray.last
+      outputString.concat(" and#{coin}.")
+    else
+      outputString.concat("#{coin},")
+    end
   end
+else
+  outputString = "You don't need to dispense change"
 end
 puts "outputString: #{outputString}"
