@@ -1,12 +1,7 @@
 linesArray = []
 File.open("reviews.txt") { | review_file | linesArray = review_file.readlines  }
 
-linesArray = linesArray.find_all { | line | line.include?("Truncated") }
-
-#linesArray.each_with_index do | line, i |
- # unless line.include?("Truncated")
-  #  linesArray.delete_at(i)
-  #end
-#end
+linesArray = linesArray.find_all { | line | line if line.include?("Truncated") }
+linesArray = linesArray.reject { |l| l.include?("--") }
 
 linesArray.each { |n| puts n}
