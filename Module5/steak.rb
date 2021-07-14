@@ -10,13 +10,14 @@ class Steak
   def <=>(steak)
     currentSteak = GRADES[grade]
     compareSteak = GRADES[steak.grade]
-    if currentSteak > compareSteak # compare the current steak object's grade IV to the grade IV of the entered steak object 
-      return 1
-    elsif currentSteak < compareSteak
-      return -1
-    else
-      return 0
-    end
+    #if currentSteak > compareSteak # compare the current steak object's grade IV to the grade IV of the entered steak object 
+     # return 1
+    #elsif currentSteak < compareSteak
+     # return -1
+    #else
+     # return 0
+    #end
+    currentSteak <=> compareSteak
   end
 end
 
