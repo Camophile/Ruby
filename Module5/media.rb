@@ -26,6 +26,18 @@ class Song < Clip
   attr_accessor :beats_per_minute
 end
 
+class Photo
+  include AcceptsComments
+  def show
+    puts "Displaying #{object_id}"
+  end
+end
+
+photo = Photo.new
+photo.add_comment("neat photo")
+p photo.comments
+photo.show
+
 video = Video.new
 video.add_comment("cool vid")
 video.add_comment("dope vid")
