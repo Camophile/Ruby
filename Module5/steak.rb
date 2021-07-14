@@ -1,13 +1,13 @@
 class Steak
   attr_accessor :grade
-
-  def >(steak)
-    grades = {
+    GRADES = {
       "Prime" => 3,
       "Choice" => 2,
       "Select" => 1
     }
-    grades[grade] > grades[steak.grade] # compare the current steak object's grade IV to the grade IV of the entered steak object 
+
+  def >(steak)
+    GRADES[grade] > GRADES[steak.grade] # compare the current steak object's grade IV to the grade IV of the entered steak object 
   end
 end
 
