@@ -1,10 +1,6 @@
 module AcceptsComments
   def comments
-    if @comments
-      @comments
-    else
-      @comments = []
-    end
+    @comments ||= []
   end
   def add_comment(comment)
     comments << comment
@@ -48,3 +44,4 @@ p video.comments, song.comments
 video.play
 song.play
 
+p Photo.ancestors
