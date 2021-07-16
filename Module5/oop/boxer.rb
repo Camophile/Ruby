@@ -1,7 +1,7 @@
 require_relative "super"
 
 class Boxer < Fighter
-  attr_accessor :punches
+  attr_reader :punches
   PUNCHES = {
     "jab" => 2,
     "cross" => 6,
@@ -10,13 +10,19 @@ class Boxer < Fighter
     "haymaker" => 12,
     "right_hand_lead" => 10 
   }
-
-  def punches
+  
+  def initialize(name)
+    super(name)
+    @type = "boxer"
     @punches = getMoves(PUNCHES)
   end
 end
 
 ali = Boxer.new("Mohammad")
 p ali.punches
+#p ali.methods
+puts "#{ali.name} is a #{ali.type}"
+puts "#{ali.name} is able to throw a #{ali.punches.join(" ")}"
 foreman = Boxer.new("George")
-p foreman.punches
+puts "#{foreman.name} is able to throw a #{foreman.punches.join(" ")}"
+#p foreman.punches
