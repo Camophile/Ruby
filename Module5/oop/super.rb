@@ -11,9 +11,9 @@ class Fighter
   # :type is the kind of fighter they are based on class type
   # :world_champion will be a boolean, and only one object can be world_champion at a time
 
-  attr_reader :name, :type, :is_champion
+  attr_reader :name, :type, :attacks, :is_champion
   
-  FIGHTER_TYPE = ["boxer", "taekwondoin", "jiujiteiro"]
+#  FIGHTER_TYPE = ["boxer", "taekwondoin", "jiujiteiro"]
 
   def initialize(name="Anonymous")
     if name.to_i > 0       
