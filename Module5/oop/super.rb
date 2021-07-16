@@ -23,6 +23,7 @@ class Fighter
     else
       @name = name
     end
+      @world_champion = false
   end
 end
 
