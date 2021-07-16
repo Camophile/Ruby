@@ -1,3 +1,10 @@
+module AccessMoves
+  def getMoves(moves)
+    movesArray = moves.map { | move, value | move }
+    movesArray.shuffle
+  end
+end
+
 class Fighter
   include AccessMoves
 
@@ -10,10 +17,6 @@ class Fighter
     else
       @name = name
     end
-  end
-  def self.getMoves(moves)
-    movesArray = moves.map { | move, value | move }
-    movesArray.shuffle
   end
 end
 
