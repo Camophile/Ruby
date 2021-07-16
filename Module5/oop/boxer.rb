@@ -23,6 +23,7 @@ p ali.punches
 #p ali.methods
 puts "#{ali.name} is a #{ali.type}"
 puts "#{ali.name} is able to throw a #{ali.punches.join(" ")}"
+puts "#{ali.name} is#{ali.world_champion ? "" : " not"} world champion"
 foreman = Boxer.new("George")
 puts "#{foreman.name} is able to throw a #{foreman.punches.join(" ")}"
 #p foreman.punches
