@@ -1,5 +1,5 @@
 class Fighter
-  include AccessMoves
+  # include AccessMoves
 
   attr_reader :name, :moves
   def initialize(name)
