@@ -17,7 +17,6 @@ class Boxer < Fighter
     @punches = getMoves(PUNCHES)
   end
 end
-
 ali = Boxer.new("Mohammad")
 p ali.punches
 #p ali.methods

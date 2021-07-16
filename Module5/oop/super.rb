@@ -11,9 +11,9 @@ class Fighter
   # :type is the kind of fighter they are based on class type
   # :world_champion will be a boolean, and only one object can be world_champion at a time
 
-  attr_reader :name, :type, :world_champion
+  attr_reader :name, :type, :is_champion
   
-  FIGHTER_TYPE = ["boxer", "kick_boxer", "jiujiteiro"]
+  FIGHTER_TYPE = ["boxer", "taekwondoin", "jiujiteiro"]
 
   def initialize(name="Anonymous")
     if name.to_i > 0       
@@ -23,7 +23,19 @@ class Fighter
     else
       @name = name
     end
-      @world_champion = false
+      @is_champion = false
+  end
+
+  def championStatus
+    puts "#{self.name} is#{self.is_champion ? "" : " not"} world champion"
+  end
+
+  def is_champion=(value)
+    if !!value == value # check to see if the value is a boolean
+      @is_champion = value
+    else
+      raise "is_champion must be either true or false"
+    end
   end
 end
 
