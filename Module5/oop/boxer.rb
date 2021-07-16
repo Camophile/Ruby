@@ -10,24 +10,19 @@ class Boxer < Fighter
     "haymaker" => 12,
     "right_hand_lead" => 10 
   }
-
-  def punches
+  
+  def initialize(name)
+    super(name)
+    @type = "boxer"
     @punches = getMoves(PUNCHES)
   end
-  #def type=(value)
-   # type = value.downcase
-    #unless FIGHTER_TYPE.include? type
-     # raise "#{value} is not an acceptable fighting style"
-    #else
-     # @type = type
-    #end
-  #end
 end
 
 ali = Boxer.new("Mohammad")
-p ali.methods
 p ali.punches
-ali.type = "boxer"
+#p ali.methods
 puts "#{ali.name} is a #{ali.type}"
+puts "#{ali.name} is able to throw a #{ali.punches.join(" ")}"
 foreman = Boxer.new("George")
-p foreman.punches
+puts "#{foreman.name} is able to throw a #{foreman.punches.join(" ")}"
+#p foreman.punches
