@@ -18,12 +18,12 @@ class Jiujiteiro < Fighter
   end
 end
 
-#=begin
+=begin
 rafa = Jiujiteiro.new("Rafa")
 p rafa.attacks
 #p rafa.methods
 puts "#{rafa.name} is a #{rafa.type}"
 rafa.championStatus
-rafa.is_champion = true
-rafa.championStatus
-#=end
+#rafa.is_champion = true
+#rafa.championStatus
+=end
