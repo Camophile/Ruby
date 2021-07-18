@@ -16,6 +16,10 @@ class Kickboxer < Fighter
     @type = "kickboxer"
     @attacks = getMoves(ATTACKS)
   end
+
+  def getAttacks
+    ATTACKS
+  end
 end
 
 =begin

@@ -16,6 +16,10 @@ class Jiujiteiro < Fighter
     @type = "jiujiteiro"
     @attacks = getMoves(ATTACKS)
   end
+
+  def getAttacks
+    ATTACKS
+  end
 end
 
 =begin

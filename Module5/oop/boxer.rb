@@ -14,8 +14,8 @@ class Boxer < Fighter
     super(name)
     @type = "boxer"
     @attacks = getMoves(ATTACKS)
-  end
-  
+  end  
+
   def getAttacks
     ATTACKS
   end

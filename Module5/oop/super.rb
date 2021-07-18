@@ -1,7 +1,7 @@
 module FighterBuilder
   def getMoves(moves)
     movesArray = moves.map { | move, value | move }
-    movesArray.shuffle
+    movesArray 
   end
 end
 
@@ -28,6 +28,10 @@ class Fighter
 
   def championStatus
     puts "#{self.name} is#{self.is_champion ? "" : " not"} world champion"
+  end
+
+  def getAttacks
+    self.ATTACKS
   end
 
   def is_champion=(value)
