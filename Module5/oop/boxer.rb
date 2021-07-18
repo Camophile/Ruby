@@ -15,6 +15,10 @@ class Boxer < Fighter
     @type = "boxer"
     @attacks = getMoves(ATTACKS)
   end
+  
+  def getAttacks
+    ATTACKS
+  end
 end
 =begin
 ali = Boxer.new("Mohammad")
