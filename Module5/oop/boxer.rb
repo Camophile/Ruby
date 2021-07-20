@@ -20,14 +20,3 @@ class Boxer < Fighter
     ATTACKS
   end
 end
-=begin
-ali = Boxer.new("Mohammad")
-p ali.attacks
-#p ali.methods
-puts "#{ali.name} is a #{ali.type}"
-puts "#{ali.name} is able to throw a #{ali.attacks.join(" ")}"
-puts "#{ali.name} is#{ali.world_champion ? "" : " not"} world champion"
-foreman = Boxer.new("George")
-puts "#{foreman.name} is able to throw a #{foreman.attacks.join(" ")}"
-#p foreman.attacks
-=end

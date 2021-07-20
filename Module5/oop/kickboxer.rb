@@ -22,12 +22,3 @@ class Kickboxer < Fighter
   end
 end
 
-=begin
-jimmy = Kickboxer.new("jimmy")
-p jimmy.attacks
-#p jimmy.methods
-puts "#{jimmy.name} is a #{jimmy.type}"
-jimmy.championStatus
-jimmy.is_champion = true
-jimmy.championStatus
-=end

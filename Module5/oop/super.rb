@@ -16,9 +16,10 @@ class Fighter
 #  FIGHTER_TYPE = ["boxer", "taekwondoin", "jiujiteiro"]
 
   def initialize(name="Anonymous")
+    blank_reg = /\A[[:space:]]*\z/
     if name.to_i > 0       
       raise "#{name} isn't a valid name"
-    elsif name.empty? || name == " "
+    elsif name.empty? || name.match?(blank_reg)
       raise "name can't be empty"
     else
       @name = name
